@@ -7,6 +7,9 @@
  
 @section('content')
 
+ <link rel="stylesheet" href="{{ url('css/bootstrap-2.3.1.css')}}">
+ <link rel="stylesheet" href="{{ url('css/bootstrap-responsive-2.3.1.min.css')}}">
+
 <h1>Grupos</h1>
  
  
