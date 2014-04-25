@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'dawproject',
-			'username'  => 'master',
-			'password'  => 'allahuakbar',
+			'host'      => 'fandelgol.com',
+			'database'  => 'projectdaw',
+			'username'  => 'live',
+			'password'  => 'Live2013',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
