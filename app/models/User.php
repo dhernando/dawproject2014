@@ -10,7 +10,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'usuarios';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -38,6 +38,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->password;
 	}
+
+	public function getFullName()
+    {
+        return $this->nombre . ' ' . $this->apellido;
+    }
 
 	/**
 	 * Get the token value for the "remember me" session.

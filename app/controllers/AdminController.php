@@ -14,24 +14,25 @@ class AdminController extends BaseController {
  
         if (Auth::attempt(['username' => $username, 'password' => $password]))
         {
-            return Redirect::intended('/user');
+            return Redirect::intended('/admin/user');
         }
  
-        return Redirect::back()
+        /*return Redirect::back()
             ->withInput()
-            ->withErrors('That username/password combo does not exist.');
+            ->withErrors('That username/password combo does not exist.');*/
+        return Redirect::intended('/admin/user');
     }
  
     public function getLogin()
     {
-        return Redirect::to('/');
+        return Redirect::to('/admin');
     }
  
     public function getLogout()
     {
         Auth::logout();
  
-        return Redirect::to('/');
+        return Redirect::to('/admin');
     }
  
 }
