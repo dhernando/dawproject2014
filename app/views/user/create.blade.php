@@ -1,6 +1,6 @@
 @extends('layouts.master')
  
-@section('title') Create User @stop
+@section('title') Crear Usuario @stop
  
 @section('content')
  
@@ -12,7 +12,7 @@
         @endforeach
     @endif
  
-    <h1><i class='fa fa-user'></i> Add User</h1>
+    <h1><i class='fa fa-user'></i> Crear Usuario</h1>
  
     {{ Form::open(['role' => 'form', 'url' => '/admin/user']) }}
  

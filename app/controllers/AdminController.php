@@ -32,7 +32,7 @@ class AdminController extends BaseController {
     {
         Auth::logout();
  
-        return Redirect::to('/');
+        return Redirect::to('/admin');
     }
  
 }

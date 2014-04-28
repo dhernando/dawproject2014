@@ -1,6 +1,6 @@
 @extends('layouts.master')
  
-@section('title') Create User @stop
+@section('title') Editar Usuario @stop
  
 @section('content')
  
@@ -12,7 +12,7 @@
         @endforeach
     @endif
  
-    <h1><i class='fa fa-user'></i> Edit User</h1>
+    <h1><i class='fa fa-user'></i> Editar Usuario</h1>
  
     {{ Form::model($user, ['role' => 'form', 'url' => '/admin/user/' . $user->id, 'method' => 'PUT']) }}
  
@@ -47,7 +47,7 @@
     </div>
  
     <div class='form-group'>
-        {{ Form::submit('Login', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Editar', ['class' => 'btn btn-primary']) }}
     </div>
  
     {{ Form::close() }}
