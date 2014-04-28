@@ -38,8 +38,8 @@ class UserController extends \BaseController {
     {
         $user = new User;
  
-        $user->first_name = Input::get('nombre');
-        $user->last_name  = Input::get('apellido');
+        $user->nombre = Input::get('nombre');
+        $user->apellido  = Input::get('apellido');
         $user->username   = Input::get('username');
         $user->email      = Input::get('email');
         $user->password   = Hash::make(Input::get('password'));
@@ -72,8 +72,8 @@ class UserController extends \BaseController {
     {
         $user = User::find($id);
  
-        $user->first_name = Input::get('nombre');
-        $user->last_name  = Input::get('apellido');
+        $user->nombre = Input::get('nombre');
+        $user->apellido  = Input::get('apellido');
         $user->username   = Input::get('username');
         $user->email      = Input::get('email');
         $user->password   = Hash::make(Input::get('password'));
