@@ -16,6 +16,8 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::controller('/admin', 'AdminController');
+
 Route::get('grupos', array('uses' => 'GruposController@mostrarGrupos'));
 
 Route::get('grupos/nuevo', array('uses' => 'GruposController@nuevoGrupo'));
