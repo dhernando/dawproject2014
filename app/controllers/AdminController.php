@@ -17,10 +17,10 @@ class AdminController extends BaseController {
             return Redirect::intended('/admin/user');
         }
  
-        /*return Redirect::back()
+        return Redirect::back()
             ->withInput()
-            ->withErrors('That username/password combo does not exist.');*/
-        return Redirect::intended('/admin/user');
+            ->withErrors('La combinación de usuario/contraseña no existe.');
+        /*return Redirect::intended('/admin/user');*/
     }
  
     public function getLogin()
