@@ -1,0 +1,53 @@
+/*!
+ * HEADER CSS Style
+ */
+@font-face {
+	font-family:"Valken Regular";
+ 	src:url("fonts/Valken__.ttf") format("truetype");
+ 	font-weight:normal;font-style:normal;
+}
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+.navbar-default {
+	background: #3d362d;
+	border-color: #3d362d;
+	color: white;
+	border-radius: none;
+}
+.navbar {
+	margin-bottom: 0px;
+	border-radius: 0px;
+}
+.navbar-nav>.active>a {
+	background-color: transparent !important;
+	color: white !important;
+}
+.navbar-brand {
+	padding: 5px;
+}
+.imageweb {
+	font-size: 38px;
+	padding: 0px 8px 0px 18px;
+	float: left;
+	color: white;
+}
+.nameweb {
+	float: left;
+	font-family:"Valken Regular";
+	font-size: 22px;
+	padding: 8px 2px;
+	color: white;
+}
+.avatar {
+	padding: 2px;
+	float: left;
+	height: 50px;
+}
+.username {
+	float: left;
+	font-family: 'Montserrat', 'sans-serif';
+	font-size: 22px;
+	color: white;
+}
+.loginbutton {
+	float: right;
+}
