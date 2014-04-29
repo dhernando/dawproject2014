@@ -14,7 +14,7 @@
  
     <h1><i class='glyphicon glyphicon-music'></i> Agregar Grupo</h1>
  
-    {{ Form::open(['role' => 'form', 'url' => '/admin/grupo']) }}
+    {{ Form::open(['role' => 'form', 'url' => '/admin/grupo', 'files' => true]) }}
  
     <div class='form-group'>
         {{ Form::label('nombre', 'Nombre') }}
@@ -27,8 +27,8 @@
     </div>
  
     <div class='form-group'>
-        {{ Form::label('imagen', 'Imagen') }}
-        {{ Form::text('imagen', null, ['placeholder' => 'Imagen', 'class' => 'form-control']) }}
+        {{ Form::label('image', 'Imagen') }}
+        {{ Form::file('image')}}
     </div>
  
     <div class='form-group'>

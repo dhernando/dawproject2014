@@ -39,11 +39,24 @@ class GrupoController extends BaseController {
  
         $grupo->nombre = Input::get('nombre');
         $grupo->descripcion  = Input::get('descripcion');
-        $grupo->imagen   = Input::get('imagen');
+
+        $file = Input::file('image');
  
-        $grupo->save();
- 
-        return Redirect::to('/admin/grupo');
+        $destinationPath = 'uploads/'.AppHelper::clean($grupo->nombre);
+        $filename = str_random(12);
+        //$filename = $file->getClientOriginalName();
+        //$extension =$file->getClientOriginalExtension(); 
+        $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+         
+        if( $upload_success ) {
+            $grupo->imagen = $filename;
+            $grupo->save();
+            
+            return Redirect::to('/admin/grupo');
+        } 
+        else {
+           return Response::json('error', 400);
+        }
     }
  
     /**
@@ -71,7 +84,23 @@ class GrupoController extends BaseController {
  
         $grupo->nombre = Input::get('nombre');
         $grupo->descripcion  = Input::get('descripcion');
-        $grupo->imagen   = Input::get('imagen');
+
+        $file = Input::file('image');
+ 
+        $destinationPath = 'uploads/'.AppHelper::clean($grupo->nombre);
+        $filename = str_random(12);
+        //$filename = $file->getClientOriginalName();
+        //$extension =$file->getClientOriginalExtension(); 
+        $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+         
+        if( $upload_success ) {
+            $grupo->imagen = $filename;
+            $grupo->save();
+            
+            return Redirect::to('/admin/grupo');
+        } else {
+           return Response::json('error', 400);
+        }
  
         $grupo->save();
  

@@ -14,7 +14,7 @@
  
     <h1><i class='glyphicon glyphicon-music'></i> Editar Grupo</h1>
  
-    {{ Form::model($grupo, ['role' => 'form', 'url' => '/admin/grupo/' . $grupo->id, 'method' => 'PUT']) }}
+    {{ Form::model($grupo, ['role' => 'form', 'url' => '/admin/grupo/' . $grupo->id, 'method' => 'PUT', 'files' => true]) }}
  
     <div class='form-group'>
         {{ Form::label('nombre', 'Nombre') }}
@@ -27,8 +27,8 @@
     </div>
  
     <div class='form-group'>
-        {{ Form::label('imagen', 'Imagen') }}
-        {{ Form::text('imagen', null, ['placeholder' => 'Imagen', 'class' => 'form-control']) }}
+        {{ Form::label('image', 'Imagen') }}
+        {{ Form::file('image')}}
     </div>
  
     <div class='form-group'>

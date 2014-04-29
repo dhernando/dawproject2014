@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{ $grupo->nombre }}</td>
                     <td>{{ $grupo->descripcion }}</td>
-                    <td>{{ $grupo->imagen }}</td>
+                    <td>{{ HTML::image('uploads/'.AppHelper::clean($grupo->nombre).'/'.$grupo->imagen.'.jpg', $grupo->nombre, array('class' => 'imageGroup')) }}</td>
                     <td>{{ $grupo->created_at->format('F d, Y h:ia') }}</td>
                     <td>
                         <a href="/dawproject2014/public/admin/grupo/{{ $grupo->id }}/edit" class="btn btn-info pull-left" style="margin-right: 3px;">Editar</a>
