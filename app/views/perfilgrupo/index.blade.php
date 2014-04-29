@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.home')
  
-@section('title') Login @stop
+@section('title') Perfil Grupo @stop
  
 @section('content')
  

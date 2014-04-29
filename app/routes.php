@@ -16,6 +16,11 @@ Route::get('/', function()
 	return View::make('index');
 });
 
+Route::get('/perfil', function()
+{
+	return View::make('perfilgrupo.index');
+});
+
 Route::resource('/admin/grupo', 'GrupoController');
 Route::resource('/admin/user', 'UserController');
 Route::controller('/admin', 'AdminController');
