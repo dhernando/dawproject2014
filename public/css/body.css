@@ -1,3 +1,13 @@
 /*!
  * BODY CSS Style
  */
+.colorbutton {
+	color: #1E52C6;
+	font-size: 20px;
+}
+.form-control {
+	height: 41px !important;
+}
+.mt {
+	margin-top: 0px !important;
+}

@@ -8,7 +8,7 @@
         <div class="container">
             <header>
                 <!-- HEADLINE -->
-                <h1 data-animated="GoIn"><b>COUNTER</b> site is coming soon...</h1>
+                <h1 data-animated="GoIn"><b>Crescendo</b> your favourite searcher engine...</h1>
             </header>
             <!-- START TIMER -->
             <!--<div id="timer" data-animated="FadeIn">
@@ -20,13 +20,19 @@
             </div>-->
             <!-- END TIMER -->
             <div class="col-lg-4 col-lg-offset-4 mt centered">
-            	<h4>LET ME KNOW WHEN YOU LAUNCH</h4>
+            	<h4>BUSCA TU GRUPO DE MUSICA FAVORITO</h4>
 				<form class="form-inline" role="form">
-				  <div class="form-group">
+				  <!--<div class="form-group">
 				    <label class="sr-only" for="exampleInputEmail2">Email address</label>
 				    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
 				  </div>
-				  <button type="submit" class="btn btn-info">Submit</button>
+				  <button type="submit" class="btn btn-info">Submit</button>-->
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Grupo musical">
+            <span class="input-group-btn">
+              <button class="btn btn-default inputmida" type="button"><span class="glyphicon glyphicon-search colorbutton"></span></button>
+            </span>
+          </div><!-- /input-group -->
 				</form>            
 			</div>
             
