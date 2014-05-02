@@ -8,7 +8,7 @@
         <script src="{{ URL::asset('js/bootstrap.js') }}"></script>
         <!-- CSS -->
         <link rel='stylesheet' href="{{ URL::asset('css/admin.css')}}">
-        <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='//bootswatch.com/lumen/bootstrap.min.css'>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     </head>
     <body>
