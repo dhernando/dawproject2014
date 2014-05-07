@@ -4,39 +4,38 @@
  
 @section('content')
  
-<hr>
+<!--<hr>-->
 <div class="container">
     <div class="row">
         <div class="col-sm-10"><h1>Arctic Monkeys</h1></div>
-        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+        <!--<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>-->
     </div>
     <div class="row">
         <div class="col-sm-3"><!--left col-->
               
           <ul class="list-group">
-            <li class="list-group-item text-muted">Profile</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span> Joseph Doe</li>
+            <li class="list-group-item text-muted">Perfil</li>
+            <li class="list-group-item imatge"><img src="http://www.rockaxis.com/imagenes/1386278247_Arctic%20Monkeys.jpg"></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Origen</strong></span> Reino Unido</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Genero</strong></span> Rock</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Actividad</strong></span> 2002 - presente</li>
             
           </ul> 
                
           <div class="panel panel-default">
             <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-            <div class="panel-body"><a href="http://bootply.com">bootply.com</a></div>
+            <div class="panel-body"><a href="www.arcticmonkeys.com">arcticmonkeys.com</a></div>
           </div>
           
           
           <ul class="list-group">
-            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+            <li class="list-group-item text-muted">Actividad <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Visitas</strong></span> 125</li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
           </ul> 
                
           <div class="panel panel-default">
-            <div class="panel-heading">Social Media</div>
+            <div class="panel-heading">Redes sociales</div>
             <div class="panel-body">
                 <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
             </div>
@@ -46,9 +45,9 @@
         <div class="col-sm-9">
           
           <ul class="nav nav-tabs" id="myTab">
-            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-            <li><a href="#messages" data-toggle="tab">Messages</a></li>
-            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+            <li class="active"><a href="#home" data-toggle="tab">España</a></li>
+            <li><a href="#messages" data-toggle="tab">Alemania</a></li>
+            <li><a href="#settings" data-toggle="tab">Francia</a></li>
           </ul>
               
           <div class="tab-content">
@@ -58,117 +57,60 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Label 1</th>
-                      <th>Label 2</th>
-                      <th>Label 3</th>
-                      <th>Label </th>
-                      <th>Label </th>
-                      <th>Label </th>
+                      <th>Evento</th>
+                      <th>Fecha</th>
+                      <th>Ciudad</th>
+                      <th>Descripción</th>
+                      <th>Mapa</th>
                     </tr>
                   </thead>
                   <tbody id="items">
                     <tr>
                       <td>1</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
+                      <td>Nas @ UB Stadium in Buffalo, NY</td>
+                      <td>Friday, April 29, 2011 at 7:00pm</td>
+                      <td>Buffalo, NY</td>
+                      <td>2011 Block Party: featuring Kid Cudi, Damian Marley, Nas &amp; Spec. Guest</td>
+                      <td class="imatgemapa">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne1" onclick="$('#collapseOne1').toggle();">
+                          <img src="{{ URL::asset('img/map.png') }}">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="6" class="amagada">
+                        <div id="collapseOne1" class="panel-collapse collapse">
+                          <div class="map-frame"><iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+                            <div class="map-content"></div>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                     <tr>
                       <td>2</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
+                      <td>Nas @ UB Stadium in Buffalo, NY</td>
+                      <td>Friday, April 29, 2011 at 7:00pm</td>
+                      <td>Buffalo, NY</td>
+                      <td>2011 Block Party: featuring Kid Cudi, Damian Marley, Nas &amp; Spec. Guest</td>
+                      <td class="imatgemapa">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" onclick="$('#collapseOne2').toggle();">
+                          <img src="{{ URL::asset('img/map.png') }}">
+                        </a>
+                      </td>
                     </tr>
                     <tr>
-                      <td>3</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                    </tr>
-                    <tr>
-                      <td>7</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                    </tr>
-                     <tr>
-                      <td>8</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                    </tr>
-                    <tr>
-                      <td>9</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                    </tr>
-                    <tr>
-                      <td>10</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
-                      <td>Table cell</td>
+                      <td colspan="6" class="amagada">
+                        <div id="collapseOne2" class="panel-collapse collapse">
+                          <div class="map-frame"><iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=27.0625,-95.677068&amp;spn=46.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+                            <div class="map-content"></div>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
-                <hr>
-                <div class="row">
-                  <div class="col-md-4 col-md-offset-4 text-center">
-                    <ul class="pagination" id="myPager"></ul>
-                  </div>
-                </div>
               </div><!--/table-resp-->
-              
-              <hr>
-              
+
               <h4>Recent Activity</h4>
               
               <div class="table-responsive">
@@ -219,7 +161,7 @@
              <div class="tab-pane" id="settings">
                     
                 
-                  <hr>
+                  <!--<hr>-->
                   <form class="form" action="##" method="post" id="registrationForm">
                       <div class="form-group">
                           

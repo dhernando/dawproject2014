@@ -1,0 +1,1 @@
+<img src="{{ URL::asset('img/clint.gif') }}" />

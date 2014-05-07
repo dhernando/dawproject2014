@@ -8,7 +8,7 @@
         <div class="container">
             <header>
                 <!-- HEADLINE -->
-                <h1 data-animated="GoIn"><b>Crescendo</b> your favourite searcher engine...</h1>
+                <h1 data-animated="GoIn"><b>Crescendo</b> your favourite search engine...</h1>
             </header>
             <!-- START TIMER -->
             <!--<div id="timer" data-animated="FadeIn">
@@ -21,7 +21,7 @@
             <!-- END TIMER -->
             <div class="col-lg-4 col-lg-offset-4 mt centered">
             	<h4>BUSCA TU GRUPO DE MUSICA FAVORITO</h4>
-				<form class="form-inline" role="form" action="{{ URL::to('/test')}}" method="post">
+				<form class="form-inline" role="form" action="{{ URL::to('/perfil')}}" method="post">
 				  <!--<div class="form-group">
 				    <label class="sr-only" for="exampleInputEmail2">Email address</label>
 				    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">

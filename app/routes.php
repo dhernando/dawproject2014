@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', function()
+Route::any('/', function()
 {
 	return View::make('index');
 });
 
-Route::get('/perfil', function()
+/*Route::any('/perfil', function()
 {
 	return View::make('perfilgrupo.index');
-});
+});*/
 
 
-Route::any('/test', array('uses' => 'PerfilController@getIndex'));
+Route::any('/perfil', array('uses' => 'PerfilController@getIndex'));
 
 Route::resource('/admin/grupo', 'GrupoController');
 Route::resource('/admin/user', 'UserController');
