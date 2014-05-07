@@ -22,6 +22,10 @@ class Perfil extends Eloquent {
 
     public static function getDades($grup)
     {
+    	$dades = DB::select('SELECT * FROM grupos WHERE nombre = ?', array($grup));
+
+    	if($dades) DB::update('UPDATE grupos SET busquedas = ? WHERE nombre = ? ', array( $dades[0]->busquedas+1, $grup));
+
     	return DB::table('grupos')->where('nombre', '=', $grup)->get();
     }
 
