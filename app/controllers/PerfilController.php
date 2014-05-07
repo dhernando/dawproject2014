@@ -13,7 +13,7 @@ class PerfilController extends BaseController {
             $busqueda = strtolower($_POST['busqueda']);
 
             if ((strpos($busqueda,'delete') !== false) || (strpos($busqueda,'select') !== false) || (strpos($busqueda,'insert into') !== false) || (strpos($busqueda,'update') !== false)) {
-                return View::make('test.error');
+                return View::make('perfilgrupo.error');
             }
 
             else{
@@ -27,7 +27,7 @@ class PerfilController extends BaseController {
 
             $json = json_decode($api);
  
-            return View::make('test.index', ['dades' => $dades, 'json' => $json]);
+            return View::make('perfilgrupo.index', ['dades' => $dades, 'json' => $json]);
             }
         }
     }  
