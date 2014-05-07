@@ -21,6 +21,9 @@ Route::get('/perfil', function()
 	return View::make('perfilgrupo.index');
 });
 
+
+Route::any('/test', array('uses' => 'PerfilController@getIndex'));
+
 Route::resource('/admin/grupo', 'GrupoController');
 Route::resource('/admin/user', 'UserController');
 Route::controller('/admin', 'AdminController');

@@ -21,17 +21,17 @@
             <!-- END TIMER -->
             <div class="col-lg-4 col-lg-offset-4 mt centered">
             	<h4>BUSCA TU GRUPO DE MUSICA FAVORITO</h4>
-				<form class="form-inline" role="form">
+				<form class="form-inline" role="form" action="{{ URL::to('/test')}}" method="post">
 				  <!--<div class="form-group">
 				    <label class="sr-only" for="exampleInputEmail2">Email address</label>
 				    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
 				  </div>
 				  <button type="submit" class="btn btn-info">Submit</button>-->
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Grupo musical">
-            <span class="input-group-btn">
-              <button class="btn btn-default inputmida" type="button"><span class="glyphicon glyphicon-search colorbutton"></span></button>
-            </span>
+              <input name="busqueda" type="text" class="form-control" placeholder="Grupo musical">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default inputmida" type="button"><span class="glyphicon glyphicon-search colorbutton"></span></button>
+              </span>
           </div><!-- /input-group -->
 				</form>            
 			</div>
