@@ -12,6 +12,7 @@ class PerfilController extends BaseController {
         {
             $busqueda = strtolower($_POST['busqueda']);
 
+            //truncate - drop
             if ((strpos($busqueda,'delete') !== false) || (strpos($busqueda,'select') !== false) || (strpos($busqueda,'insert into') !== false) || (strpos($busqueda,'update') !== false)) {
                 return View::make('perfilgrupo.error');
             }

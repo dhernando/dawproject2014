@@ -10,6 +10,7 @@
                 <!-- HEADLINE -->
                 <h1 data-animated="GoIn"><b>Crescendo</b> your favourite search engine...</h1>
             </header>
+            
             <!-- START TIMER -->
             <!--<div id="timer" data-animated="FadeIn">
                 <p id="message"></p>
