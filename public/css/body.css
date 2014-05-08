@@ -15,10 +15,12 @@
 	width: 100%;
 }
 body {
-	background: #56A6D7 !important;
+	/*background: #56A6D7 !important;*/
+	background: white !important;
 }
 .nomobile {
-	background: #56A6D7 !important;
+	/*background: #56A6D7 !important;*/
+	background: white !important;
 }
 #slider {
 	background: #56A6D7 !important;

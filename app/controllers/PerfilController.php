@@ -26,8 +26,10 @@ class PerfilController extends BaseController {
             $api = file_get_contents('http://api.bandsintown.com/artists/'.$artista_api.'/events.json?api_version=2.0&app_id=YOUR_APP_ID');
 
             $json = json_decode($api);
+
+            $ciudadesarray = new stdClass();
  
-            return View::make('perfilgrupo.index', ['dades' => $dades, 'json' => $json]);
+            return View::make('perfilgrupo.index', ['dades' => $dades, 'json' => $json, 'ciudadesarray' => $ciudadesarray]);
             }
         }
     }  

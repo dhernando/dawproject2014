@@ -4,10 +4,15 @@
  
 @section('content')
  
+<?php print_r($dades);
+      echo "<br><br>";
+      print_r($json);
+ ?>
+
 <!--<hr>-->
 <div class="container">
     <div class="row">
-        <div class="col-sm-10"><h1>Arctic Monkeys</h1></div>
+        <div class="col-sm-10"><h1>{{ $dades[0]->nombre }}</h1></div>
         <!--<div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>-->
     </div>
     <div class="row">
@@ -15,23 +20,23 @@
               
           <ul class="list-group">
             <li class="list-group-item text-muted">Perfil</li>
-            <li class="list-group-item imatge"><img src="http://www.rockaxis.com/imagenes/1386278247_Arctic%20Monkeys.jpg"></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Origen</strong></span> Reino Unido</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Genero</strong></span> Rock</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Actividad</strong></span> 2002 - presente</li>
+            <li class="list-group-item imatge">{{ HTML::image('uploads/'.AppHelper::clean($dades[0]->nombre).'/'.$dades[0]->imagen.'.jpg', $dades[0]->nombre) }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Origen</strong></span> Reino Unido*</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Genero</strong></span> Rock*</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Actividad</strong></span> 2002 - presente*</li>
             
           </ul> 
                
           <div class="panel panel-default">
             <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-            <div class="panel-body"><a href="www.arcticmonkeys.com">arcticmonkeys.com</a></div>
+            <div class="panel-body"><a href="www.arcticmonkeys.com">arcticmonkeys.com*</a></div>
           </div>
           
           
           <ul class="list-group">
             <li class="list-group-item text-muted">Actividad <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Visitas</strong></span> 125</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Visitas</strong></span> {{ $dades[0]->busquedas }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13*</li>
           </ul> 
                
           <div class="panel panel-default">
@@ -45,13 +50,21 @@
         <div class="col-sm-9">
           
           <ul class="nav nav-tabs" id="myTab">
-            <li class="active"><a href="#home" data-toggle="tab">España</a></li>
-            <li><a href="#messages" data-toggle="tab">Alemania</a></li>
-            <li><a href="#settings" data-toggle="tab">Francia</a></li>
+            <?php $ciudadesarray = array(); ?>
+            @foreach ($json as $dada)
+            <?php
+              if (!in_array($dada->venue->country, $ciudadesarray)){
+                array_push($ciudadesarray, $dada->venue->country);
+            ?>
+              <li class="active"><a href="#<?php echo $dada->venue->country; ?>" data-toggle="tab"><?php echo $dada->venue->country; ?></a></li>
+            <?php
+              }
+            ?>
+            @endforeach
           </ul>
-              
+          
           <div class="tab-content">
-            <div class="tab-pane active" id="home">
+            <div class="tab-pane active" id="">
               <div class="table-responsive">
                 <table class="table table-hover">
                   <thead>
