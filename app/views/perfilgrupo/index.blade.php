@@ -50,14 +50,23 @@
         <div class="col-sm-9">
           
           <ul class="nav nav-tabs" id="myTab">
-            <?php $ciudadesarray = array(); ?>
+            <?php $ciudadesarray = array();
+                  $i = 0; 
+            ?>
             @foreach ($json as $dada)
             <?php
               if (!in_array($dada->venue->country, $ciudadesarray)){
                 array_push($ciudadesarray, $dada->venue->country);
+                if ($i == 0) {
             ?>
               <li class="active"><a href="#<?php echo $dada->venue->country; ?>" data-toggle="tab"><?php echo $dada->venue->country; ?></a></li>
             <?php
+             }else{
+            ?>
+              <li><a href="#<?php echo $dada->venue->country; ?>" data-toggle="tab"><?php echo $dada->venue->country; ?></a></li>
+            <?php
+              }
+              $i++;
               }
             ?>
             @endforeach
