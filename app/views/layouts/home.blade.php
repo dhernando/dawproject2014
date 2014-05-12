@@ -40,15 +40,17 @@
                     <img src="http://images.football365.com/14/01/800x600/Hull-v-Chelsea-Jose-Mourinho_3064486.jpg" alt="user" class="img-rounded img-responsive">
                     <h4>{{Auth::user()->getFullName()}}</h4>
                     <div class="menu-options">
-                        <!--<a href="/dawproject2014/public/logout" class="btn btn-group btn-group-justified">Edit profile</a>-->
 
                         <a data-toggle="collapse" class="btn btn-group btn-group-justified" data-parent="#accordion" href="#editprofile" onclick="$('#editprofile').toggle();">Edit profile</a>
                         <div id="editprofile" class="panel-collapse collapse">
                             <p>Morete morete</p>
                         </div>
 
+                        <a data-toggle="collapse" class="btn btn-group btn-group-justified" data-parent="#accordion" href="#favouritegroups" onclick="$('#favouritegroups').toggle();">Favourite Groups</a>
+                        <div id="favouritegroups" class="panel-collapse collapse">
+                            <p>Tengo er coño dando parmas</p>
+                        </div>
 
-                        <a href="/dawproject2014/public/logout" class="btn btn-group btn-group-justified">Favourite Groups</a>
                         <a href="/dawproject2014/public/logout" class="btn btn-group btn-group-justified">Logout</a>
                     </div>
                 @else
