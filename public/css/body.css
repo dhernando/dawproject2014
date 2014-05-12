@@ -102,28 +102,65 @@ body {
 	font-size: 61px !important;
 }
 
-@media (min-width: 685px) and (max-width : 767px) { 
+#menu-toggle {
+	right: 10px !important;
+}
+.redesociales {
+	font-size: 26px !important;
+	margin-top: 25px !important;
+}
 
+#menu-close {
+	margin: 15px 0px 0px 0px !important;
+}
+
+@media (min-width: 685px) and (max-width : 767px) { 
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
-
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1500px) { 
-
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
 }
 
 /* Samsung Galaxy S3 i petit ----------- */
 @media only screen and (max-width : 685px) {
-
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
 }
 
 /* Iphone 5 i petit ----------- */
@@ -144,6 +181,9 @@ body {
 	#sidebar-wrapper {
 		z-index: 1002 !important;
 	}
+	.nomobile h1 {
+		font-size: 48px !important;
+	}
 }
 /* Samsung Galaxy S3 ----------- */
 @media only screen and (max-width : 380px) {
@@ -152,6 +192,9 @@ body {
 	}
 	#sidebar-wrapper {
 		z-index: 1002 !important;
+	}
+	.nomobile h1 {
+		font-size: 48px !important;
 	}
 }
 
@@ -162,6 +205,9 @@ body {
 	}
 	#sidebar-wrapper {
 		z-index: 1002 !important;
+	}
+	.nomobile h1 {
+		font-size: 48px !important;
 	}
 }
 

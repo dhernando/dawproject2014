@@ -22,7 +22,6 @@
             </div>-->
             <!-- END TIMER -->
             <div class="col-lg-4 col-lg-offset-4 mt centered">
-            	<h4>BUSCA TU GRUPO DE MUSICA FAVORITO</h4>
 				<form class="form-inline" role="form" action="{{ URL::to('/perfil')}}" method="post">
 				  <!--<div class="form-group">
 				    <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -36,6 +35,9 @@
               </span>
           </div><!-- /input-group -->
 				</form>            
+        <div class="redesociales">
+                <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+              </div>
 			</div>
             
         </div>
