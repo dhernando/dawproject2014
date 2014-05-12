@@ -1,7 +1,7 @@
 @extends('layouts.master')
  
 @section('title') Login @stop
- 
+
 @section('content')
  
 <div class='col-lg-4 col-lg-offset-4'>

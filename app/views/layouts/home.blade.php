@@ -33,46 +33,39 @@
         <!-- Side Menu -->
         <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
         <div id="sidebar-wrapper">
-            <!--<ul class="sidebar-nav">
-                <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-                <li class="sidebar-brand"><a href="http://startbootstrap.com">Start Bootstrap</a>
-                </li>
-                <li><a href="#top">Home</a>
-                </li>
-                <li><a href="#about">About</a>
-                </li>
-                <li><a href="#services">Services</a>
-                </li>
-                <li><a href="#portfolio">Portfolio</a>
-                </li>
-                <li><a href="#contact">Contact</a>
-                </li>
-            </ul>-->
             <div class='col-md-12 col-md-offset-0'>
+                <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+                @if(Auth::check())
+                    <img src="http://images.football365.com/14/01/800x600/Hull-v-Chelsea-Jose-Mourinho_3064486.jpg" alt="user" class="img-rounded img-responsive">
+                    <h4>Welcome {{Auth::user()->getFullName()}}</h4>
+                    <a href="/dawproject2014/public/logout" class="btn btn-default pull-right">Logout</a>
+                @else
                     @if ($errors->has())
                         @foreach ($errors->all() as $error)
                             <div class='bg-danger alert'>{{ $error }}</div>
                         @endforeach
                     @endif
-                    <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-                    <h3><i class='fa fa-lock'></i> Login</h3>
-                    {{ Form::open(['role' => 'form']) }}
-                 
-                    <div class='form-group'>
+                    <h3 class="sidebar_text"><i class='fa fa-lock sidebar_text'></i> Login</h3>
+                    {{ Form::open(['url' => ' ', 'method' => 'post']) }}
+
+                    <div class='form-group sidebar_text'>
                         {{ Form::label('username', 'Username') }}
                         {{ Form::text('username', null, ['placeholder' => 'Username', 'class' => 'form-control']) }}
                     </div>
-                 
-                    <div class='form-group'>
+
+                    <div class='form-group sidebar_text'>
                         {{ Form::label('password', 'Password') }}
                         {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
                     </div>
-                 
-                    <div class='form-group'>
+
+                    <div class='form-group sidebar_text'>
                         {{ Form::submit('Login', ['class' => 'btn btn-primary']) }}
                     </div>
-                 
+
                     {{ Form::close() }}
+
+                    <div class="sidebar_text">Not a member yet? {{ HTML::link('/register', 'Register') }}</div>
+                    @endif
             </div>
         </div>
         <!-- /Side Menu -->

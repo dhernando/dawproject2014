@@ -95,5 +95,13 @@ class UserController extends BaseController {
  
         return Redirect::to('/admin/user');
     }
- 
+
+    public function name()
+    {
+        if ($this->username) {
+            return $this->username;
+        } else {
+            return $this->nombre . ' ' . $this->apellido;
+        }
+    }
 }
