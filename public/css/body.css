@@ -114,6 +114,11 @@ body {
 	margin: 15px 0px 0px 0px !important;
 }
 
+.img-rounded {
+	border-radius: 4px !important;
+	padding-top: 15px !important;
+}
+
 @media (min-width: 685px) and (max-width : 767px) { 
 	#menu-toggle {
 		z-index: 1001 !important;
