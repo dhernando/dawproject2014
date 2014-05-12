@@ -22,9 +22,9 @@ body {
 /* Side Menu */
 
 #sidebar-wrapper {
-  margin-right: -250px;
+  margin-right: -360px;
   right: 0;
-  width: 250px;
+  width: 360px;
   background: #555555;
   position: fixed;
   height: 100%;
@@ -91,8 +91,8 @@ body {
 }
 
 #sidebar-wrapper.active {
-  right: 250px;
-  width: 250px;
+  right: 360px;
+  width: 360px;
   -webkit-transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
   -ms-transition: all 0.4s ease 0s;
