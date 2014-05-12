@@ -4,9 +4,9 @@
  
 @section('content')
  
-<?php print_r($dades);
+<?php /*print_r($dades);
       echo "<br><br>";
-      print_r($json);
+      print_r($json); */
  ?>
 
 <!--<hr>-->
@@ -19,11 +19,11 @@
         <div class="col-sm-3"><!--left col-->
               
           <ul class="list-group">
-            <li class="list-group-item text-muted">Perfil</li>
+            <li class="list-group-item text-muted">Profile</li>
             <li class="list-group-item imatge">{{ HTML::image('uploads/'.AppHelper::clean($dades[0]->nombre).'/'.$dades[0]->imagen.'.jpg', $dades[0]->nombre) }}</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Origen</strong></span> Reino Unido*</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Genero</strong></span> Rock*</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Actividad</strong></span> 2002 - presente*</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Origin</strong></span> {{ $dades[0]->origen }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Genre</strong></span> {{ $dades[0]->genero }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Activity</strong></span> {{ $dades[0]->actividad }}</li>
             
           </ul> 
                
@@ -34,13 +34,13 @@
           
           
           <ul class="list-group">
-            <li class="list-group-item text-muted">Actividad <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Visitas</strong></span> {{ $dades[0]->busquedas }}</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13*</li>
+            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Visits</strong></span> {{ $dades[0]->busquedas }}</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Favs</strong></span> 13*</li>
           </ul> 
                
           <div class="panel panel-default">
-            <div class="panel-heading">Redes sociales</div>
+            <div class="panel-heading">Social networks</div>
             <div class="panel-body">
                 <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
             </div>
@@ -48,92 +48,71 @@
           
         </div><!--/col-3-->
         <div class="col-sm-9">
-          
-          <ul class="nav nav-tabs" id="myTab">
-            <?php $ciudadesarray = array();
-                  $i = 0; 
-            ?>
-            @foreach ($json as $dada)
-            <?php
-              if (!in_array($dada->venue->country, $ciudadesarray)){
-                array_push($ciudadesarray, $dada->venue->country);
-                if ($i == 0) {
-            ?>
-              <li class="active"><a href="#<?php echo $dada->venue->country; ?>" data-toggle="tab"><?php echo $dada->venue->country; ?></a></li>
-            <?php
-             }else{
-            ?>
-              <li><a href="#<?php echo $dada->venue->country; ?>" data-toggle="tab"><?php echo $dada->venue->country; ?></a></li>
-            <?php
-              }
-              $i++;
-              }
-            ?>
-            @endforeach
-          </ul>
-          
+          <h4>Who are {{ $dades[0]->nombre }}?</h4>
+          <div class="descripciongrupo">
+            {{ $dades[0]->descripcion }}
+          </div>
+          <h4>{{ $dades[0]->nombre }} events</h4>
           <div class="tab-content">
-            <div class="tab-pane active" id="">
+            <div class="tab-pane active" id="home">
               <div class="table-responsive">
                 <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Evento</th>
-                      <th>Fecha</th>
-                      <th>Ciudad</th>
-                      <th>Descripción</th>
-                      <th>Mapa</th>
+                      <th>Place</th>
+                      <th>City</th>
+                      <th>Country</th>
+                      <th>Date event</th>
+                      <th>Tickets</th>
+                      <th>Map</th>
                     </tr>
                   </thead>
                   <tbody id="items">
-                    <tr>
-                      <td>1</td>
-                      <td>Nas @ UB Stadium in Buffalo, NY</td>
-                      <td>Friday, April 29, 2011 at 7:00pm</td>
-                      <td>Buffalo, NY</td>
-                      <td>2011 Block Party: featuring Kid Cudi, Damian Marley, Nas &amp; Spec. Guest</td>
-                      <td class="imatgemapa">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne1" onclick="$('#collapseOne1').toggle();">
-                          <img src="{{ URL::asset('img/map.png') }}">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="6" class="amagada">
-                        <div id="collapseOne1" class="panel-collapse collapse">
-                          <div class="map-frame"><iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
-                            <div class="map-content"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Nas @ UB Stadium in Buffalo, NY</td>
-                      <td>Friday, April 29, 2011 at 7:00pm</td>
-                      <td>Buffalo, NY</td>
-                      <td>2011 Block Party: featuring Kid Cudi, Damian Marley, Nas &amp; Spec. Guest</td>
-                      <td class="imatgemapa">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" onclick="$('#collapseOne2').toggle();">
-                          <img src="{{ URL::asset('img/map.png') }}">
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="6" class="amagada">
-                        <div id="collapseOne2" class="panel-collapse collapse">
-                          <div class="map-frame"><iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=27.0625,-95.677068&amp;spn=46.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
-                            <div class="map-content"></div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                    <?php $i = 0; ?>
+                    @foreach ($json as $dada)
+                      <tr>
+                        <td>{{ $i }}</td>
+                        <td>{{ $dada->venue->name }}</td>
+                        <td>{{ $dada->venue->city }}</td>
+                        <td>{{ $dada->venue->country }}</td>
+                        <td>{{ $dada->formatted_datetime }}</td>
+                        <td class="ticket">
+                          <?php if ($dada->ticket_url == null ){ ?>
+                            <img src="{{ URL::asset('img/no-ticket.png') }}">
+                          <?php }else{ ?>
+                            <a href="{{ $dada->ticket_url }}"><img src="{{ URL::asset('img/ticket.png') }}"></a> 
+                            <?php } ?>
+                        </td>
+                        <td class="imatgemapa">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#{{ $i }}" onclick="$('#{{ $i }}').toggle();">
+
+                            <img src="{{ URL::asset('img/map.png') }}">
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="7" class="amagada">
+                          <div id="{{ $i }}" class="panel-collapse collapse">
+                            <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+                            <div class="map-frame"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=116640587348333367942.000470de64cbe4ae5b3f6&amp;ll={{ $dada->venue->latitude }},{{ $dada->venue->longitude }}&amp;z=15&amp;output=embed"></iframe>
+                              <div class="map-content"></div>
+                            </div>
+
+                            <!--<div class="map-container">
+                                <div id='location-canvas' style='width:100%;height:300px;'></div>
+                            </div>-->
+
+                            </div>
+                        </td>
+                      </tr>
+                      <?php $i++; ?>
+                    @endforeach
                   </tbody>
                 </table>
               </div><!--/table-resp-->
 
-              <h4>Recent Activity</h4>
+              <!--<h4>Recent Activity</h4>
               
               <div class="table-responsive">
                 <table class="table table-hover">
@@ -159,7 +138,7 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div>-->
               
              </div><!--/tab-pane-->
              <div class="tab-pane" id="messages">
