@@ -63,8 +63,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
                 @if(Auth::check())
                     <img src="http://images.football365.com/14/01/800x600/Hull-v-Chelsea-Jose-Mourinho_3064486.jpg" alt="user" class="img-rounded img-responsive">
-                    <h4>Welcome {{Auth::user()->getFullName()}}</h4>
-                    <a href="/dawproject2014/public/logout" class="btn btn-default pull-right">Logout</a>
+                    <h4>{{Auth::user()->getFullName()}}</h4>
+                    <div class="menu-options">
+                        <a href="/dawproject2014/public/logout" class="btn btn-group btn-group-justified">Edit profile</a>
+                        <a href="/dawproject2014/public/logout" class="btn btn-group btn-group-justified">Favourite Groups</a>
+                        <a href="/dawproject2014/public/logout" class="btn btn-group btn-group-justified">Logout</a>
+                    </div>
                 @else
                     @if ($errors->has())
                         @foreach ($errors->all() as $error)

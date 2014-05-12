@@ -25,7 +25,7 @@ body {
   margin-right: -250px;
   right: 0;
   width: 250px;
-  background: #3276B1;
+  background: #555555;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -115,6 +115,17 @@ body {
 
 .sidebar_text a:hover{
   color: #FF8800 !important;
+}
+
+.menu-options a{
+  border-radius: 0px !important;
+  background: #FFFFFF;
+  margin-bottom: 1px;
+}
+
+.menu-options a:hover{
+  background: #E6E6E6;
+  color: #2a6496;
 }
 
 /* Full Page Image Header Area */
