@@ -97,3 +97,76 @@ body {
 	border-bottom: 2px solid white;
 	font-size: 24px !important;
 }
+
+.nomobile h1 {
+	font-size: 61px !important;
+}
+
+@media (min-width: 685px) and (max-width : 767px) { 
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1500px) { 
+
+}
+
+/* Samsung Galaxy S3 i petit ----------- */
+@media only screen and (max-width : 685px) {
+
+}
+
+/* Iphone 5 i petit ----------- */
+@media only screen and (max-width : 568px) {
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
+}
+
+/* Iphone 4s i petit ----------- */
+@media only screen and (max-width : 480px) {
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
+}
+/* Samsung Galaxy S3 ----------- */
+@media only screen and (max-width : 380px) {
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
+}
+
+/* Iphone 4s i petit ----------- */
+@media only screen and (max-width : 320px) {
+	#menu-toggle {
+		z-index: 1001 !important;
+	}
+	#sidebar-wrapper {
+		z-index: 1002 !important;
+	}
+}
+
+/* Retina Display ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+
+
+}
