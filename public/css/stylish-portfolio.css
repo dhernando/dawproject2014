@@ -25,7 +25,7 @@ body {
   margin-right: -250px;
   right: 0;
   width: 250px;
-  background: #000;
+  background: #3276B1;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -103,6 +103,18 @@ body {
 .toggle {
   margin: 5px 5px 0 0;
   margin-top: 15px;
+}
+
+.sidebar_text{
+  color: #FFFFFF !important;
+}
+
+.sidebar_text a{
+  color: #FFAA00 !important;
+}
+
+.sidebar_text a:hover{
+  color: #FF8800 !important;
 }
 
 /* Full Page Image Header Area */

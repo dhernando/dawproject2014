@@ -2,6 +2,7 @@
 @section ('title')
 	Home
 @stop
+
 <!-- BODY -->
 @section ('content')
 	<section id="header">
