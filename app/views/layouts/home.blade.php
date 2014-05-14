@@ -18,6 +18,7 @@
         <link href="{{ URL::asset('css/soon.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('css/stylish-portfolio.css') }}" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href="{{ URL::asset('css/bootstrap-switch.css') }}" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -129,6 +130,7 @@
         <script src="{{ URL::asset('js/soon/plugins.js') }}"></script>
         <script src="{{ URL::asset('js/soon/jquery.themepunch.revolution.min.js') }}"></script>
         <script src="{{ URL::asset('js/soon/custom.js') }}"></script>
+        <script src="{{ URL::asset('js/bootstrap-switch.js') }}"></script>
         <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
         <script>
         $("#menu-close").click(function(e) {
@@ -140,6 +142,38 @@
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#sidebar-wrapper").toggleClass("active");
+        });
+
+        $('button.followButton').click(function (e) {
+            e.preventDefault();
+            $button = $(this);
+            if($button.hasClass('following')){
+                
+                //$.ajax(); Do Unfollow
+                
+                $button.removeClass('following');
+                $button.removeClass('unfollow');
+                $button.text('Follow');
+            } else {
+                
+                // $.ajax(); Do Follow
+                
+                $button.addClass('following');
+                $button.text('Following');
+            }
+        });
+
+        $('button.followButton').hover(function(){
+             $button = $(this);
+            if($button.hasClass('following')){
+                $button.addClass('unfollow');
+                $button.text('Unfollow');
+            }
+        }, function(){
+            if($button.hasClass('following')){
+                $button.removeClass('unfollow');
+                $button.text('Following');
+            }
         });
         </script>
     </body>

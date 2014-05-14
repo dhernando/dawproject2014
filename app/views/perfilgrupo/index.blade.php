@@ -13,8 +13,10 @@
     <div class="row">
         <div class="col-sm-3"><!--left col-->
           <!-- Control perfil + print perfil -->
-          <ul class="list-group">
-            <li class="list-group-item text-muted">Profile</li>
+          <ul class="list-group followbtn">
+            <li class="list-group-item text-muted">Profile 
+                <button class="btn followButton" rel="6">Follow</button>
+            </li>
             <?php if ( isset ($dades[0]->imagen) and isset($dades[0]->nombre) ) { ?>
             <li class="list-group-item imatge">{{ HTML::image('uploads/'.AppHelper::clean($dades[0]->nombre).'/'.$dades[0]->imagen.'.jpg', $dades[0]->nombre) }}</li>
             <?php } else {?>
