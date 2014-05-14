@@ -30,6 +30,8 @@ Route::any('/register/confirmation', function()
   return View::make('register.confirm');
 });
 
+Route::get('/register/verify/{confirmation}', 'RegisterController@verify');
+
 Route::post('/register', array(
   'uses' => 'RegisterController@store',
   'as' => 'register.store'
