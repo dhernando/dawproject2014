@@ -16,7 +16,7 @@
  
     {{ Form::model($user, ['role' => 'form', 'url' => '/admin/user/' . $user->id, 'method' => 'PUT']) }}
  
-     <div class='form-group'>
+    <div class='form-group'>
         {{ Form::label('nombre', 'Nombre') }}
         {{ Form::text('nombre', null, ['placeholder' => 'Nombre', 'class' => 'form-control']) }}
     </div>
