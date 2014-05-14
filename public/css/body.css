@@ -1,6 +1,10 @@
 /*!
  * BODY CSS Style
  */
+ .noevents p {
+ 	text-align: center;
+ }
+
 .colorbutton {
 	color: #1E52C6;
 	font-size: 20px;
