@@ -49,6 +49,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this;
     }
 
+    public static function confirmUser($confirmation)
+    {
+    	$dades = DB::table('usuarios')->where('confirmation', $confirmation)->get();
+
+    	$dades = array_filter($dades);
+
+		if (!empty($dades)) {
+			DB::table('usuarios')->where('confirmation', $confirmation)->update(array('confirmed' => 1));
+			return true;
+		}
+		else{
+			return false;
+		}
+    }
+
 	/**
 	 * Get the token value for the "remember me" session.
 	 *
