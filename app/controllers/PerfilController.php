@@ -35,7 +35,17 @@ class PerfilController extends BaseController {
  
             $artista_api = ucfirst(strtolower($artista_api)); 
 
-            return View::make('perfilgrupo.index', ['dades' => $dades, 'json' => $json, 'grupo' => $grupo]);
+            if (!Auth::guest())
+            {
+                $user_id=Auth::user()->getUser()->id;
+                $favs = Favorito::getFavs($user_id);
+            }
+            else
+            {
+                $favs = "";
+            }
+
+            return View::make('perfilgrupo.index', ['dades' => $dades, 'json' => $json, 'grupo' => $grupo])->with('favs',$favs);
             }
         }
     }  
