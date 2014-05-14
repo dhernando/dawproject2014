@@ -39,4 +39,9 @@ Route::get('/register', array('uses' => 'RegisterController@getIndex'));
 
 Route::any('/perfil', array('uses' => 'PerfilController@getIndex'));
 
+Route::post('/editprofile', array(
+  'uses' => 'HomeController@update',
+  'as' => 'home.update'
+));
+
 Route::controller('/', 'HomeController');

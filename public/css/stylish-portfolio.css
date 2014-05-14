@@ -128,6 +128,29 @@ body {
   color: #2a6496;
 }
 
+.sidebar_form{
+  margin-bottom: 0px !important;
+}
+
+.sidebar_form input{
+  border-radius: 0px !important;
+}
+
+.sidebar_form_first{
+  margin-top: 10px !important;
+}
+
+.sidebar_form_last{
+  margin-bottom: 10px !important;
+}
+
+.favorits{
+  background-color: #428bca;
+  color: #FFFFFF;
+  padding: 4.5px 20px;
+  list-style-type: none;
+}
+
 /* Full Page Image Header Area */
 
 .header {
