@@ -38,7 +38,11 @@
             <div class='col-md-12 col-md-offset-0'>
                 <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
                 @if(Auth::check())
-                    <img src="http://images.football365.com/14/01/800x600/Hull-v-Chelsea-Jose-Mourinho_3064486.jpg" alt="user" class="img-rounded img-responsive">
+                <?php if (isset(Auth::user()->getUser()->imagen)) { ?>
+                    {{ HTML::image('uploads/users/'.AppHelper::clean(Auth::user()->getUser()->username).'/'.Auth::user()->getUser()->imagen.'.jpg', Auth::user()->getUser()->username, array('class' =>'img-rounded img-responsive')) }}
+                <?php } else {?>
+                    {{ HTML::image('img/nofoto.jpg', 'No picture available', array('class' =>'img-rounded img-responsive')) }}
+                <?php } ?>
                     <h4>{{Auth::user()->getFullName()}}</h4>
                     <div class="menu-options">
 
@@ -49,7 +53,7 @@
                                     <div class='bg-danger alert'>{{ $error }}</div>
                                 @endforeach
                             @endif
-                            {{ Form::open(['role' => 'form', 'route' => 'home.update']) }}
+                            {{ Form::open(['role' => 'form', 'route' => 'home.update', 'files' => 'true']) }}
 
                             {{ Form::hidden('id', Auth::user()->getUser()->id) }}
  
@@ -69,8 +73,12 @@
                                 {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
                             </div>
                          
-                            <div class='form-group sidebar_form sidebar_form_last'>
+                            <div class='form-group sidebar_form'>
                                 {{ Form::password('password_confirmation', ['placeholder' => 'Confirm Password', 'class' => 'form-control']) }}
+                            </div>
+
+                            <div class='form-group sidebar_text sidebar_form_last'>
+                                {{ Form::file('image')}}
                             </div>
 
                             <div class='form-group sidebar_text'>
@@ -84,7 +92,11 @@
                         <div id="favouritegroups" class="panel-collapse collapse">
                             <ul class="favorits">
                                 @foreach($favs as $fav)
-                                    <li>{{$fav->nombre}}</li>
+                                    <?php
+                                        $artista_url = str_replace(" ", "%20", $fav->nombre);
+                                        $artista_url = str_replace("/", "%252F", $artista_url);
+                                    ?>
+                                    <li>{{HTML::link('perfil/'.$artista_url, $fav->nombre)}}</li>
                                 @endforeach
                             </ul>
                         </div>

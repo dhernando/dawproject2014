@@ -44,8 +44,6 @@ class GrupoController extends BaseController {
  
         $destinationPath = 'uploads/'.AppHelper::clean($grupo->nombre);
         $filename = str_random(12);
-        //$filename = $file->getClientOriginalName();
-        //$extension =$file->getClientOriginalExtension(); 
         $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
          
         if( $upload_success ) {

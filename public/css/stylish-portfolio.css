@@ -144,11 +144,25 @@ body {
   margin-bottom: 10px !important;
 }
 
+.sidebar_form_last input{
+  font-size: 13px !important;
+}
+
 .favorits{
   background-color: #428bca;
   color: #FFFFFF;
   padding: 4.5px 20px;
   list-style-type: none;
+}
+
+.favorits li a{
+  background-color: #428BCA;
+  color: #FFFFFF;
+}
+
+.favorits li a:hover{
+  background-color: #428BCA;
+  color: #FFFFFF;
 }
 
 /* Full Page Image Header Area */

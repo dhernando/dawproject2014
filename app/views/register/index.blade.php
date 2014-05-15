@@ -14,7 +14,7 @@
  
     <h1><i class='fa fa-user'></i> Register</h1>
  
-    {{ Form::open(['role' => 'form', 'route' => 'register.store']) }}
+    {{ Form::open(['role' => 'form', 'route' => 'register.store', 'files' => 'true']) }}
  
     <div class='form-group'>
         {{ Form::label('nombre', 'Name') }}
@@ -34,6 +34,11 @@
     <div class='form-group'>
         {{ Form::label('email', 'Email') }}
         {{ Form::email('email', null, ['placeholder' => 'Email', 'class' => 'form-control']) }}
+    </div>
+
+    <div class='form-group'>
+        {{ Form::label('image', 'Image') }}
+        {{ Form::file('image')}}
     </div>
  
     <div class='form-group'>

@@ -22,7 +22,7 @@ class HomeController extends BaseController {
         $username = Input::get('username');
         $password = Input::get('password');
  
-        if (Auth::attempt(['username' => $username, 'password' => $password]))
+        if (Auth::attempt(['username' => $username, 'password' => $password, 'confirmed' => 1]))
         {
             
             return Redirect::intended('/');
@@ -30,7 +30,7 @@ class HomeController extends BaseController {
  
         return Redirect::back()
             ->withInput()
-            ->withErrors('La combinación de usuario/contraseña no existe.');
+            ->withErrors('User/Password combination doesnt\'t exist.');
         /*return Redirect::intended('/admin/user');*/
     }
 
@@ -39,9 +39,19 @@ class HomeController extends BaseController {
         $user = User::find(Input::get('id'));
 
         $user->nombre = Input::get('nombre');
-        $user->apellido  = Input::get('apellido');
-        $user->email      = Input::get('email');
-        $user->password   = Hash::make(Input::get('password'));
+        $user->apellido = Input::get('apellido');
+        $user->email = Input::get('email');
+        $user->password = Hash::make(Input::get('password'));
+
+        $file = Input::file('image');
+ 
+        $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
+        $filename = str_random();
+        $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+         
+        if( $upload_success ) {
+            $user->imagen = $filename;
+        }
  
         $user->save();
  

@@ -43,6 +43,7 @@ Route::post('/register', array(
 
 Route::get('/register', array('uses' => 'RegisterController@getIndex'));
 
+Route::any('/perfil/{perfilid}', array('uses' => 'PerfilController@getIndex'));
 Route::any('/perfil', array('uses' => 'PerfilController@getIndex'));
 
 Route::post('/editprofile', array(
