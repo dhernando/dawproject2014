@@ -16,11 +16,15 @@
           <!-- Control perfil + print perfil -->
           <ul class="list-group followbtn">
             <li class="list-group-item text-muted">Profile 
+              
+              @if(Auth::check())
               <?php 
                 $following = false;
-                for($i=0;$i<count($favs);$i++) { 
-                  if ($favs[$i]->nombre == $dades[0]->nombre) {
-                    $following = true;
+                if ($favs != ""){
+                  for($i=0;$i<count($favs);$i++) { 
+                    if ($favs[$i]->nombre == $dades[0]->nombre) {
+                      $following = true;
+                    }
                   }
                 }
               ?>
@@ -29,6 +33,7 @@
               <?php }else { ?>
                 <button class="btn followButton follow" value="{{ $dades[0]->id }}" rel="6">Follow</button>
               <?php } ?>
+              @endif
             </li>
             <?php if ( isset ($dades[0]->imagen) and isset($dades[0]->nombre) ) { ?>
             <li class="list-group-item imatge">{{ HTML::image('uploads/'.AppHelper::clean($dades[0]->nombre).'/'.$dades[0]->imagen.'.jpg', $dades[0]->nombre) }}</li>
@@ -135,8 +140,8 @@
                       <tr>
                         <td colspan="7" class="amagada">
                           <div id="{{ $i }}" class="panel-collapse collapse">
-                            <div class="map-frame"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=116640587348333367942.000470de64cbe4ae5b3f6&amp;ll={{ $dada->venue->latitude }},{{ $dada->venue->longitude }}&amp;z=15&amp;output=embed"></iframe>
-                              <div class="map-content"></div>
+                            <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?q='+{{ $dada->venue->latitude }}+','+{{ $dada->venue->longitude }}+'&amp;ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=116640587348333367942.000470de64cbe4ae5b3f6&amp;ll={{ $dada->venue->latitude }},{{ $dada->venue->longitude }}&amp;z=15&amp;output=embed"></iframe>
+                              <!--<div class="map-content"></div>-->
                             </div>
                           </div>
                         </td>
