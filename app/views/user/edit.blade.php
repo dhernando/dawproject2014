@@ -35,6 +35,11 @@
         {{ Form::label('email', 'Email') }}
         {{ Form::email('email', null, ['placeholder' => 'Email', 'class' => 'form-control']) }}
     </div>
+
+    <div class='form-group'>
+        {{ Form::label('image', 'Imagen') }}
+        {{ Form::file('image')}}
+    </div>
  
     <div class='form-group'>
         {{ Form::label('password', 'Password') }}

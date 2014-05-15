@@ -91,6 +91,7 @@
                         <a data-toggle="collapse" class="btn btn-group btn-group-justified" data-parent="#accordion" href="#favouritegroups" onclick="$('#favouritegroups').toggle();">Favourite Groups</a>
                         <div id="favouritegroups" class="panel-collapse collapse">
                             <ul class="favorits">
+                                <?php if(count($favs)==0) echo "You don't have favourite groups yet.";?>
                                 @foreach($favs as $fav)
                                     <?php
                                         $artista_url = str_replace(" ", "%20", $fav->nombre);
@@ -98,6 +99,7 @@
                                     ?>
                                     <li>{{HTML::link('perfil/'.$artista_url, $fav->nombre)}}</li>
                                 @endforeach
+
                             </ul>
                         </div>
 

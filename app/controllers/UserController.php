@@ -36,17 +36,61 @@ class UserController extends BaseController {
      */
     public function store()
     {
-        $user = new User;
+
+
+        $datos = array(
+                'nombre' => Input::get('nombre'), 
+                'apellido' => Input::get('apellido'), 
+                'username' => Input::get('username'), 
+                'email' => Input::get('email'),
+                'image' => Input::file('image'),
+                'password' => Input::get('password'), 
+                'password_confirmation' => Input::get('password_confirmation')
+        );
+
+        $rules = array(
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+            'image' => 'image',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8',
+        );
+
+        $validator = Validator::make($datos , $rules);
+
+        if($validator->fails())
+        {
+            return Redirect::to('/admin/user/create')
+            ->withErrors($validator);
+        }
+
+        else
+        {
+            $user = new User;
+     
+            $user->nombre = Input::get('nombre');
+            $user->apellido  = Input::get('apellido');
+            $user->username   = Input::get('username');
+            $user->email      = Input::get('email');
+
+            $file = Input::file('image');
  
-        $user->nombre = Input::get('nombre');
-        $user->apellido  = Input::get('apellido');
-        $user->username   = Input::get('username');
-        $user->email      = Input::get('email');
-        $user->password   = Hash::make(Input::get('password'));
- 
-        $user->save();
- 
-        return Redirect::to('/admin/user');
+            $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
+            $filename = str_random();
+            $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+             
+            if( $upload_success ) {
+                $user->imagen = $filename;
+            }
+
+            $user->password   = Hash::make(Input::get('password'));
+     
+            $user->save();
+
+            return Redirect::to('/admin/user');
+        }
     }
  
     /**
@@ -70,17 +114,60 @@ class UserController extends BaseController {
      */
     public function update($id)
     {
-        $user = User::find($id);
+        $datos = array(
+            'nombre' => Input::get('nombre'), 
+            'apellido' => Input::get('apellido'), 
+            'username' => Input::get('username'), 
+            'email' => Input::get('email'),
+            'image' => Input::file('image'),
+            'password' => Input::get('password'), 
+            'password_confirmation' => Input::get('password_confirmation')
+        );
+
+        $rules = array(
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+            'image' => 'image',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8',
+        );
+
+        $validator = Validator::make($datos , $rules);
+
+        if($validator->fails())
+        {
+            return Redirect::to('/admin/user/'.$id.'/edit')
+            ->withErrors($validator);
+        }
+
+        else
+        {
+
+            $user = User::find($id);
+     
+            $user->nombre = Input::get('nombre');
+            $user->apellido  = Input::get('apellido');
+            $user->username   = Input::get('username');
+            $user->email      = Input::get('email');
+
+            $file = Input::file('image');
  
-        $user->nombre = Input::get('nombre');
-        $user->apellido  = Input::get('apellido');
-        $user->username   = Input::get('username');
-        $user->email      = Input::get('email');
-        $user->password   = Hash::make(Input::get('password'));
- 
-        $user->save();
- 
-        return Redirect::to('/admin/user');
+            $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
+            $filename = str_random();
+            $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+             
+            if( $upload_success ) {
+                $user->imagen = $filename;
+            }
+
+            $user->password   = Hash::make(Input::get('password'));
+     
+            $user->save();
+     
+            return Redirect::to('/admin/user');
+        }
     }
  
     /**

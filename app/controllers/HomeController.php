@@ -25,7 +25,7 @@ class HomeController extends BaseController {
         if (Auth::attempt(['username' => $username, 'password' => $password, 'confirmed' => 1]))
         {
             
-            return Redirect::intended('/');
+            return Redirect::back();
         }
  
         return Redirect::back()
@@ -36,26 +36,53 @@ class HomeController extends BaseController {
 
     public function update()
     {
-        $user = User::find(Input::get('id'));
+        $datos = array(
+            'nombre' => Input::get('nombre'), 
+            'apellido' => Input::get('apellido'),
+            'email' => Input::get('email'),
+            'image' => Input::file('image'),
+            'password' => Input::get('password'), 
+            'password_confirmation' => Input::get('password_confirmation')
+        );
 
-        $user->nombre = Input::get('nombre');
-        $user->apellido = Input::get('apellido');
-        $user->email = Input::get('email');
-        $user->password = Hash::make(Input::get('password'));
+        $rules = array(
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'email' => 'required|email',
+            'image' => 'image',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8',
+        );
 
-        $file = Input::file('image');
- 
-        $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
-        $filename = str_random();
-        $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
-         
-        if( $upload_success ) {
-            $user->imagen = $filename;
+        if($validator->fails())
+        {
+            return Redirect::back()
+            ->withErrors($validator);
         }
- 
-        $user->save();
- 
-        return Redirect::to('/');
+
+        else{
+
+            $user = User::find(Input::get('id'));
+
+            $user->nombre = Input::get('nombre');
+            $user->apellido = Input::get('apellido');
+            $user->email = Input::get('email');
+            $user->password = Hash::make(Input::get('password'));
+
+            $file = Input::file('image');
+     
+            $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
+            $filename = str_random();
+            $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+             
+            if( $upload_success ) {
+                $user->imagen = $filename;
+            }
+     
+            $user->save();
+     
+            return Redirect::back();
+        }
     }
  
     public function getLogin()

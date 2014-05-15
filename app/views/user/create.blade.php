@@ -14,7 +14,7 @@
  
     <h1><i class='fa fa-user'></i> Crear Usuario</h1>
  
-    {{ Form::open(['role' => 'form', 'url' => '/admin/user']) }}
+    {{ Form::open(['role' => 'form', 'url' => '/admin/user', 'files' => 'true']) }}
  
     <div class='form-group'>
         {{ Form::label('nombre', 'Nombre') }}
@@ -34,6 +34,11 @@
     <div class='form-group'>
         {{ Form::label('email', 'Email') }}
         {{ Form::email('email', null, ['placeholder' => 'Email', 'class' => 'form-control']) }}
+    </div>
+
+    <div class='form-group'>
+        {{ Form::label('image', 'Imagen') }}
+        {{ Form::file('image')}}
     </div>
  
     <div class='form-group'>
