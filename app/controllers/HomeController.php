@@ -87,14 +87,14 @@ class HomeController extends BaseController {
  
     public function getLogin()
     {
-        return Redirect::to('/');
+        return Redirect::back();
     }
  
     public function getLogout()
     {
         Auth::logout();
  
-        return Redirect::to('/');
+        return Redirect::back();
     }
 
 }
