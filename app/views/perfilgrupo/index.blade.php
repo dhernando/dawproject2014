@@ -11,11 +11,24 @@
       <div class="col-sm-10"><h1>{{ $grupo }}</h1></div>
     </div>
     <div class="row">
+      <?php //print_r($dades[0]->id); ?>
         <div class="col-sm-3"><!--left col-->
           <!-- Control perfil + print perfil -->
           <ul class="list-group followbtn">
             <li class="list-group-item text-muted">Profile 
-                <button class="btn followButton" rel="6">Follow</button>
+              <?php 
+                $following = false;
+                for($i=0;$i<count($favs);$i++) { 
+                  if ($favs[$i]->nombre == $dades[0]->nombre) {
+                    $following = true;
+                  }
+                }
+              ?>
+              <?php if ($following == true) {?>
+                <button class="btn followButton following" value="{{ $dades[0]->id }}" rel="6">Following</button>
+              <?php }else { ?>
+                <button class="btn followButton follow" value="{{ $dades[0]->id }}" rel="6">Follow</button>
+              <?php } ?>
             </li>
             <?php if ( isset ($dades[0]->imagen) and isset($dades[0]->nombre) ) { ?>
             <li class="list-group-item imatge">{{ HTML::image('uploads/'.AppHelper::clean($dades[0]->nombre).'/'.$dades[0]->imagen.'.jpg', $dades[0]->nombre) }}</li>

@@ -42,7 +42,7 @@
     
 }
 
-.btn:hover {
+.followbtn > .btn:hover {
     color:#333;
     border-color:#999;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f6f6f6)); /* Saf4+, Chrome */

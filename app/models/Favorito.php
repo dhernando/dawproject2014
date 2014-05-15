@@ -16,4 +16,14 @@ class Favorito extends Eloquent {
 		return $favoritos;
 	}
 
+	public static function unfollow($userid, $idgrupo)
+	{
+		DB::delete('DELETE FROM favoritos WHERE id_usuario = ? and id_grupo = ?', array($userid, $idgrupo));
+	}
+
+	public static function follow($userid, $idgrupo)
+	{
+		DB::insert('insert into favoritos (id_usuario, id_grupo) values (?, ?)', array($userid, $idgrupo));
+	}
+
 }

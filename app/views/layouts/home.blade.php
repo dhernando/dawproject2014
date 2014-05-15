@@ -148,18 +148,28 @@
             e.preventDefault();
             $button = $(this);
             if($button.hasClass('following')){
-                
                 //$.ajax(); Do Unfollow
-                
-                $button.removeClass('following');
-                $button.removeClass('unfollow');
-                $button.text('Follow');
+                $.ajax({
+                    type: 'POST',
+                    url : '/dawproject2014/public/unfollow',
+                    data: {idgrupo: $(".following").val()},
+                    success: function(result) {
+                        $button.removeClass('following');
+                        $button.removeClass('unfollow');
+                        $button.text('Follow');     
+                    }
+                });
             } else {
-                
                 // $.ajax(); Do Follow
-                
-                $button.addClass('following');
-                $button.text('Following');
+                $.ajax({
+                    type: 'POST',
+                    url : '/dawproject2014/public/follow',
+                    data: {idgrupo: $(".follow").val()},
+                    success: function(result) {
+                        $button.addClass('following');
+                        $button.text('Following');    
+                    }
+                });
             }
         });
 

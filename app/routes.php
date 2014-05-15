@@ -24,6 +24,10 @@
 Route::resource('/admin/grupo', 'GrupoController');
 Route::resource('/admin/user', 'UserController');
 Route::controller('/admin', 'AdminController');
+// FOLLOW CONTROLLER 
+Route::any('/follow', array('uses' => 'FollowController@startfollow'));
+//UNFOLLOW CONTROLLER
+Route::any('/unfollow', array('uses' => 'UnfollowController@stopfollow'));
 
 Route::any('/register/confirmation', function()
 {
