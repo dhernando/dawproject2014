@@ -17,6 +17,17 @@ class RegisterController extends BaseController {
         $user->apellido = Input::get('apellido');
         $user->username = Input::get('username');
         $user->email = Input::get('email');
+
+        $file = Input::file('image');
+ 
+        $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
+        $filename = str_random();
+        $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+         
+        if( $upload_success ) {
+            $user->imagen = $filename;
+        }
+
         $user->password = Hash::make(Input::get('password'));
 
         $confirmation = str_random();
