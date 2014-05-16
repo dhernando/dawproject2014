@@ -16,24 +16,27 @@
           <!-- Control perfil + print perfil -->
           <ul class="list-group followbtn">
             <li class="list-group-item text-muted">Profile 
-              
-              @if(Auth::check())
-              <?php 
-                $following = false;
-                if ($favs != ""){
-                  for($i=0;$i<count($favs);$i++) { 
-                    if ($favs[$i]->nombre == $dades[0]->nombre) {
-                      $following = true;
+              <?php
+                if(Auth::check()){ 
+                  $following = false;
+                  if ($favs != "" and isset($dades[0]->nombre)){
+                    for($i=0;$i<count($favs);$i++) { 
+                      if ($favs[$i]->nombre == $dades[0]->nombre) {
+                        $following = true;
+                      }
                     }
                   }
+                ?>
+                <?php if ($following == true) {?>
+                  <button class="btn followButton following" value="{{ $dades[0]->id }}" rel="6">Following</button>
+                <?php }else if ($following == false and isset($dades[0])) { ?>
+                  <button class="btn followButton follow" value="{{ $dades[0]->id }}" rel="6">Follow</button>
+                <?php }else {
+
+                } 
                 }
-              ?>
-              <?php if ($following == true) {?>
-                <button class="btn followButton following" value="{{ $dades[0]->id }}" rel="6">Following</button>
-              <?php }else { ?>
-                <button class="btn followButton follow" value="{{ $dades[0]->id }}" rel="6">Follow</button>
-              <?php } ?>
-              @endif
+                ?>
+              
             </li>
             <?php if ( isset ($dades[0]->imagen) and isset($dades[0]->nombre) ) { ?>
             <li class="list-group-item imatge">{{ HTML::image('uploads/'.AppHelper::clean($dades[0]->nombre).'/'.$dades[0]->imagen.'.jpg', $dades[0]->nombre) }}</li>
