@@ -29,6 +29,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->getKey();
 	}
 
+	public function isAdmin()
+	{
+		return $this->admin === 1;
+	}
+
 	/**
 	 * Get the password for the user.
 	 *

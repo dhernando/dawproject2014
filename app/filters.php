@@ -78,3 +78,14 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('admin', function($route, $request)
+{
+ if ( !Auth::user()->isAdmin()) {
+ 	//return App::abort(401, 'You are not authorized.');
+ 	return Redirect::back()
+            ->withInput()
+            ->withErrors('You don\'t have permission to go further.');
+ }
+});

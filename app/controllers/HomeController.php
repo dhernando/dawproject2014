@@ -25,7 +25,7 @@ class HomeController extends BaseController {
         if (Auth::attempt(['username' => $username, 'password' => $password, 'confirmed' => 1]))
         {
             
-            return Redirect::back();
+            return Redirect::to('/');
         }
  
         return Redirect::back()
@@ -39,7 +39,7 @@ class HomeController extends BaseController {
         $datos = array(
             'nombre' => Input::get('nombre'), 
             'apellido' => Input::get('apellido'),
-            'email' => Input::get('email'),
+            'email' => Input::get('unique:usuarios, email'),
             'image' => Input::file('image'),
             'password' => Input::get('password'), 
             'password_confirmation' => Input::get('password_confirmation')
@@ -48,7 +48,7 @@ class HomeController extends BaseController {
         $rules = array(
             'nombre' => 'required',
             'apellido' => 'required',
-            'email' => 'required|email',
+            'email' => 'unique:usuarios,email|required|email',
             'image' => 'image',
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'required|min:8',
@@ -87,14 +87,14 @@ class HomeController extends BaseController {
  
     public function getLogin()
     {
-        return Redirect::back();
+        return Redirect::to('/');
     }
  
     public function getLogout()
     {
         Auth::logout();
  
-        return Redirect::back();
+        return Redirect::to('/');
     }
 
 }

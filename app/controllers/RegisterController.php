@@ -25,12 +25,14 @@ class RegisterController extends BaseController {
         $rules = array(
             'nombre' => 'required',
             'apellido' => 'required',
-            'username' => 'required',
-            'email' => 'required|email',
+            'username' => 'unique:usuarios,username|required',
+            'email' => 'unique:usuarios,email|required|email',
             'image' => 'image',
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'required|min:8',
         );
+
+        $validator = Validator::make($datos , $rules);
 
         if($validator->fails())
         {
@@ -50,12 +52,16 @@ class RegisterController extends BaseController {
 
             $file = Input::file('image');
      
-            $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
-            $filename = str_random();
-            $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
-             
-            if( $upload_success ) {
-                $user->imagen = $filename;
+
+            if($file!='')
+            {
+                $destinationPath = 'uploads/users/'.AppHelper::clean($user->username);
+                $filename = str_random();
+                $upload_success = Input::file('image')->move($destinationPath, $filename.'.jpg');
+                 
+                if( $upload_success ) {
+                    $user->imagen = $filename;
+                }
             }
 
             $user->password = Hash::make(Input::get('password'));
@@ -64,6 +70,7 @@ class RegisterController extends BaseController {
 
             $user->confirmation = $confirmation;
             $user->confirmed = 0;
+            $user->admin = 0;
      
             $user->save();
 

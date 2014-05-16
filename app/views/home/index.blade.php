@@ -29,7 +29,7 @@
 				  </div>
 				  <button type="submit" class="btn btn-info">Submit</button>-->
           <div class="input-group">
-              <input name="busqueda" type="text" class="form-control" placeholder="Grupo musical">
+              <input name="busqueda" type="text" class="form-control" placeholder="Bands">
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default inputmida" type="button"><span class="glyphicon glyphicon-search colorbutton"></span></button>
               </span>

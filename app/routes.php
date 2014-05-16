@@ -11,21 +11,17 @@
 |
 */
 
-/*Route::any('/', function()
+Route::group(array('before' => array('admin')), function()
 {
-	return View::make('index');
-});*/
+	Route::resource('/admin/grupo', 'GrupoController');
+	Route::resource('/admin/user', 'UserController');
+});
 
-/*Route::any('/perfil', function()
-{
-	return View::make('perfilgrupo.index');
-});*/
-
-Route::resource('/admin/grupo', 'GrupoController');
-Route::resource('/admin/user', 'UserController');
 Route::controller('/admin', 'AdminController');
+
 // FOLLOW CONTROLLER 
 Route::any('/follow', array('uses' => 'FollowController@startfollow'));
+
 //UNFOLLOW CONTROLLER
 Route::any('/unfollow', array('uses' => 'UnfollowController@stopfollow'));
 
@@ -50,5 +46,7 @@ Route::post('/editprofile', array(
   'uses' => 'HomeController@update',
   'as' => 'home.update'
 ));
+
+Route::get('/api/v1/{band}', 'ApiController@getIndex');
 
 Route::controller('/', 'HomeController');
