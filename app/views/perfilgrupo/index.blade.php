@@ -97,7 +97,7 @@
           </div>
           <?php } ?>
           <h4>{{ $grupo }} events</h4>
-          <div class="tab-content">
+          <div class="tab-content tabmap">
             <div class="tab-pane active" id="home">
               <div class="table-responsive">
                 <table class="table table-hover">

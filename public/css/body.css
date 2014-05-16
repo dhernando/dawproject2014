@@ -9,8 +9,9 @@
     height: 300px !important;
     background: white;
 }
-
-
+.tabmap {
+	font-size: 15px;
+}
 
  .editprofile {
  	width: 100% !important;
