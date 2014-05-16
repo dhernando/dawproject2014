@@ -3,6 +3,20 @@
  */
 
  /* FOLLOW UNFOLLOW BUTTONS */
+
+.map {
+	width: 100% !important;
+    height: 300px !important;
+    background: white;
+}
+
+
+
+ .editprofile {
+ 	width: 100% !important;
+ 	height: 286px !important;
+ }
+
  .followbtn > li > button {
  	float: right !important;
 	margin-top: -6.5px !important;
@@ -223,6 +237,7 @@ body {
 .img-rounded {
 	border-radius: 4px !important;
 	padding-top: 15px !important;
+	margin: 0 auto;
 }
 
 @media (min-width: 685px) and (max-width : 767px) { 

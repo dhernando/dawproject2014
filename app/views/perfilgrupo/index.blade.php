@@ -131,17 +131,15 @@
                             <?php } ?>
                         </td>
                         <td class="imatgemapa">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#{{ $i }}" onclick="$('#{{ $i }}').toggle();">
-
+                          <a data-toggle="collapse" data-parent="#accordion" class="mapa" valor="{{ $i }}" longitude="{{ $dada->venue->longitude }}" latitude="{{ $dada->venue->latitude }}" href="#{{ $i }}" onclick="$('#{{ $i }}').toggle();">
                             <img src="{{ URL::asset('img/map.png') }}">
                           </a>
                         </td>
                       </tr>
-                      <tr>
+                      <tr test="test">
                         <td colspan="7" class="amagada">
                           <div id="{{ $i }}" class="panel-collapse collapse">
-                            <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?q='+{{ $dada->venue->latitude }}+','+{{ $dada->venue->longitude }}+'&amp;ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=116640587348333367942.000470de64cbe4ae5b3f6&amp;ll={{ $dada->venue->latitude }},{{ $dada->venue->longitude }}&amp;z=15&amp;output=embed"></iframe>
-                              <!--<div class="map-content"></div>-->
+                              <div class='map' id="{{ 'mapa'.$i }}"></div>
                             </div>
                           </div>
                         </td>

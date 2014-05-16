@@ -47,7 +47,7 @@
                     <div class="menu-options">
 
                         <a data-toggle="collapse" class="btn btn-group btn-group-justified" data-parent="#accordion" href="#editprofile" onclick="$('#editprofile').toggle();">Edit profile</a>
-                        <div id="editprofile" class="panel-collapse collapse">
+                        <div id="editprofile" class="panel-collapse collapse editprofile">
                             @if ($errors->has())
                                 @foreach ($errors->all() as $error)
                                     <div class='bg-danger alert'>{{ $error }}</div>
@@ -145,6 +145,8 @@
         <script src="{{ URL::asset('js/soon/jquery.themepunch.revolution.min.js') }}"></script>
         <script src="{{ URL::asset('js/soon/custom.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap-switch.js') }}"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=es"></script>
+        <script src="{{ URL::asset('js/map.js') }}"></script>
         <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
         <script>
         $("#menu-close").click(function(e) {
