@@ -39,7 +39,7 @@ class HomeController extends BaseController {
         $datos = array(
             'nombre' => Input::get('nombre'), 
             'apellido' => Input::get('apellido'),
-            'email' => Input::get('unique:usuarios, email'),
+            //'email' => Input::get('unique:usuarios, email'),
             'image' => Input::file('image'),
             'password' => Input::get('password'), 
             'password_confirmation' => Input::get('password_confirmation')
@@ -48,11 +48,13 @@ class HomeController extends BaseController {
         $rules = array(
             'nombre' => 'required',
             'apellido' => 'required',
-            'email' => 'unique:usuarios,email|required|email',
+            //'email' => 'unique:usuarios,email|required|email',
             'image' => 'image',
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'required|min:8',
         );
+
+        $validator = Validator::make($datos , $rules);
 
         if($validator->fails())
         {

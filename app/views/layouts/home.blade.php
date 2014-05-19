@@ -65,9 +65,9 @@
                                 {{ Form::text('apellido', Auth::user()->getUser()->apellido, ['placeholder' => 'Apellido', 'class' => 'form-control']) }}
                             </div>
                          
-                            <div class='form-group sidebar_form'>
+                            <!--<div class='form-group sidebar_form'>
                                 {{ Form::email('email', Auth::user()->getUser()->email, ['placeholder' => 'Email', 'class' => 'form-control']) }}
-                            </div>
+                            </div>-->
                          
                             <div class='form-group sidebar_form'>
                                 {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
