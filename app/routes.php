@@ -15,6 +15,9 @@ Route::group(array('before' => array('admin')), function()
 {
 	Route::resource('/admin/grupo', 'GrupoController');
 	Route::resource('/admin/user', 'UserController');
+	Route::resource('/admin/estadisticas', 'StatsController@estadisticas');
+	Route::any('/admin/estadisticas/eliminar/{id}', array('uses' => 'StatsController@eliminar'));	
+	//Route::any('/admin/estadisticas/borrar', 'StatsController@eliminar');
 });
 
 Route::controller('/admin', 'AdminController');

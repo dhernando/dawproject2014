@@ -25,6 +25,7 @@ class PerfilController extends BaseController {
         else{
 
         $dades = Perfil::getDades($busqueda);
+        $dadestats = Stats::getDades($busqueda);
         $grupo = ucfirst(strtolower($busqueda)); 
         $artista_api = str_replace(" ", "%20", $busqueda);
         $artista_api = str_replace("/", "%252F", $artista_api);

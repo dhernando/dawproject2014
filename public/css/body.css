@@ -3,7 +3,32 @@
  */
 
  /* FOLLOW UNFOLLOW BUTTONS */
+ .inputmida {
+ 	height: 40px;
+ }
+ .columcercador {
+ 	width: 222px;
+ 	float: left;
 
+
+ }
+ .buscadorperfil {
+ 	margin-top: 44px;
+ }
+ .inputperfil .buttonhome button {
+ 	height: 42.6px !important;
+	margin-top: -1px;
+	width: 42.6px;
+ }
+
+ .inputperfil > input {
+ 	width: 180px !important;
+ }
+ .inputperfil > .buttoncerca > button {
+ 	height: 42.3px !important;
+	margin-top: -0.8px;
+	width: 42.6px;
+ }
 .map {
 	width: 100% !important;
     height: 300px !important;

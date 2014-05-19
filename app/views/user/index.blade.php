@@ -11,6 +11,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#">Usuarios</a></li>
       <li><a href="/dawproject2014/public/admin/grupo">Grupos</a></li>
+      <li><a href="/dawproject2014/public/admin/estadisticas">Estadisticas</a></li>
     </ul>
 
     <div class="table-responsive">

@@ -8,7 +8,27 @@
 <div class="container perfilgrupo">
     <div class="row">
       <!-- Nombre grupo -->
-      <div class="col-sm-10"><h1>{{ $grupo }}</h1></div>
+      <div class="col-sm-10">
+        <div class="col-sm-8">
+          <!--<div class="nombregrupo">-->
+            <h1>{{ $grupo }}</h1>
+        </div>
+        <div class="columcercador">
+          <div class="buscadorperfil">
+            <form class="form-inline" role="form" action="{{ URL::to('/perfil')}}" method="post">
+              <div class="input-group inputperfil">
+                  <span class="input-group-btn buttonhome">
+                    <button class="btn btn-default" href=""><span class="glyphicon glyphicon-home"></span></button>
+                  </span>
+                  <input name="busqueda" type="text" class="form-control" placeholder="Bands">
+                  <span class="input-group-btn buttoncerca">
+                    <button type="submit" class="btn btn-default inputmida" type="button"><span class="glyphicon glyphicon-search colorbutton"></span></button>
+                  </span>
+              </div>
+            </form>        
+          </div>
+        </div>
+      </div>
     </div>
     <div class="row">
       <?php //print_r($dades[0]->id); ?>
