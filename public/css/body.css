@@ -3,32 +3,39 @@
  */
 
  /* FOLLOW UNFOLLOW BUTTONS */
- .inputmida {
+ /*.inputmida {
  	height: 40px;
  }
  .columcercador {
  	width: 222px;
  	float: left;
-
-
- }
+ }*/
  .buscadorperfil {
  	margin-top: 44px;
+ 	margin-bottom: 10px;
  }
- .inputperfil .buttonhome button {
+ .inputperfil .buttonhome a {
  	height: 42.6px !important;
+ 	line-height: 32px;
 	margin-top: -1px;
-	width: 42.6px;
+	width: 46.6px !important;
  }
 
+/*.buttonhome input {
+	margin-right: -2px !important;
+}*/
  .inputperfil > input {
- 	width: 180px !important;
+ 	/*width: 180px !important;*/
+ 	margin-left: -1px;
+ 	margin-right: -1px;
  }
- .inputperfil > .buttoncerca > button {
- 	height: 42.3px !important;
+
+.buttoncerca > .inputmida {
+	height: 42.6px !important;
+	margin-left: -2px !important;
+	width: 46px !important;
 	margin-top: -0.8px;
-	width: 42.6px;
- }
+}
 .map {
 	width: 100% !important;
     height: 300px !important;

@@ -26,4 +26,9 @@ class Favorito extends Eloquent {
 		DB::insert('insert into favoritos (id_usuario, id_grupo) values (?, ?)', array($userid, $idgrupo));
 	}
 
+	public static function favsgroup($idgrupo)
+	{
+		return DB::select('SELECT COUNT(*) AS cantidad FROM favoritos WHERE id_grupo = ?', array($idgrupo));
+	}
+
 }

@@ -18,7 +18,7 @@
             <form class="form-inline" role="form" action="{{ URL::to('/perfil')}}" method="post">
               <div class="input-group inputperfil">
                   <span class="input-group-btn buttonhome">
-                    <button class="btn btn-default" href=""><span class="glyphicon glyphicon-home"></span></button>
+                    <a href="{{ URL::to('/')}}" class="btn btn-default"><span class="glyphicon glyphicon-home"></span></a>
                   </span>
                   <input name="busqueda" type="text" class="form-control" placeholder="Bands">
                   <span class="input-group-btn buttoncerca">
@@ -90,7 +90,7 @@
           <ul class="list-group">
             <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Visits</strong></span> {{ $dades[0]->busquedas }}</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Favs</strong></span> 13*</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Favs</strong></span> {{ $countfavs[0]->cantidad }}</li>
           </ul> 
           <?php } ?>
           <!-- Control + print redes sociales -->

@@ -35,23 +35,27 @@ class PerfilController extends BaseController {
         }else{
             $api = "";
         }
-
-
+        
         $json = json_decode($api);
-
         $artista_api = ucfirst(strtolower($artista_api)); 
-
+        if (empty($dades)){
+            $countfavs = "";
+        }else {
+            $countfavs = Favorito::favsgroup($dades[0]->id);
+        }
+        
         if (!Auth::guest())
         {
             $user_id=Auth::user()->getUser()->id;
             $favs = Favorito::getFavs($user_id);
+            
         }
         else
         {
             $favs = "";
         }
 
-        return View::make('perfilgrupo.index', ['dades' => $dades, 'json' => $json, 'grupo' => $grupo])->with('favs',$favs);
+        return View::make('perfilgrupo.index', ['dades' => $dades, 'json' => $json, 'grupo' => $grupo, 'countfavs' => $countfavs])->with('favs',$favs);
         }
         
     }  
